@@ -240,9 +240,9 @@
         for (int i=0; i<[labelsEvenSpacing count]; i++) {
             CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
             CGFloat degreesForLabel = percentageAlongCircle * 360;
-            if(abs(fixedAngle - degreesForLabel) < minDist) {
+            if(abs(fixedAngle - (int)degreesForLabel) < minDist) {
                 newAngle=degreesForLabel ? 360 - degreesForLabel : 0;
-                minDist = abs(fixedAngle - degreesForLabel);
+                minDist = abs(fixedAngle - (int)degreesForLabel);
             }
         }
         angle = newAngle;
