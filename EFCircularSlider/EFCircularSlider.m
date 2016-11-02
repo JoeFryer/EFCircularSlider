@@ -77,7 +77,7 @@
 
 - (CGFloat)radius {
     //radius = self.frame.size.height/2 - [self circleDiameter]/2;
-    return self.frame.size.height/2 - _lineWidth/2 - ([self circleDiameter]-_lineWidth) - _lineRadiusDisplacement;
+    return self.frame.size.height/2 - _lineWidth - ([self circleDiameter]-_lineWidth) - _lineRadiusDisplacement;
 }
 
 - (void)setCurrentValue:(float)currentValue {
@@ -158,6 +158,7 @@
         CGContextDrawPath(ctx, kCGPathStroke);
     } else if(_handleType == EFBigCircle) {
         [_handleColor set];
+        CGContextSetShadowWithColor(ctx, CGSizeMake(1.0f, 1.0f), 1.0f, [[UIColor blackColor] colorWithAlphaComponent:0.5f].CGColor);
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x-2.5, handleCenter.y-2.5, _lineWidth+5, _lineWidth+5));
     }
     
